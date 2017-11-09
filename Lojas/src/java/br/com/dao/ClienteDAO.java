@@ -227,5 +227,57 @@ public class ClienteDAO {
 
         return clientes;
     }
+    
+    public boolean login(String email, String senha) {
+        
+        boolean vdd = false;
+        
+        String sql = "select * from clientes where email = ? and senha = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rset = null;
+
+        try {
+            //Cria uma conexão com o banco
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            //Cria um PreparedStatment, classe usada para executar a query
+            pstm = conn.prepareStatement(sql);
+
+            //Adiciona o valor do primeiro parâmetro da sql
+            pstm.setString(1, email);
+            //Adicionar o valor do segundo parâmetro da sql
+            pstm.setString(2, senha);           
+
+            //Executa a sql para inserção dos dados
+            rset = pstm.executeQuery();
+            
+            if(rset.next()){
+               vdd = true; 
+            } 
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        } finally {
+
+            //Fecha as conexões
+            try {
+                if (pstm != null) {
+
+                    pstm.close();
+                }
+
+                if (conn != null) {
+                    conn.close();
+                }
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+        }
+        return vdd;
+    }
 
 }
