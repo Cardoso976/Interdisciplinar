@@ -1,0 +1,6 @@
+http://json-taglib.sourceforge.net/
+https://www.youtube.com/watch?v=5J1LLfkkuvo
+https://www.mkyong.com/java/how-do-convert-java-object-to-from-json-format-gson-api/
+http://blog.globalcode.com.br/2012/02/json-facil-em-java-com-gson.html
+https://sites.google.com/site/gson/gson-user-guide#TOC-Gson-Users
+https://www.caelum.com.br/apostila-java-web/servlets/#5-11-exercicios-criando-funcionalidade-para-gravar-contatos
