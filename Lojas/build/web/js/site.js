@@ -8,17 +8,24 @@
         $("#registrar").toggle();
     });
 
-    $("#confimar-login").click(function () {        
+    $("#confimar-login").click(function () {
         var param = {
             usuario: $("#usrname").val(),
             senha: $("#psw").val()
-        }
-        $.post('/login', param, function () {
-            if (response == true) {
-                $("#login").toggle();
-                bootbox.alert("Bem Vindo" + response);
-            } else {
-                bootbox.alert("ERRO ao efetuar login");
+        };
+        $.ajax({
+            type: "POST", 
+            url: '/login',
+            dataType: 'JSON',
+            data: {
+                login: 1,
+                param: JSON.stringify(param) // look here!
+            },
+            success: function (response) {
+                alert('sucess');
+            },
+            error: function (response) {
+                alert('fail');
             }
         });
 

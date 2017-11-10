@@ -5,3 +5,5 @@ http://blog.globalcode.com.br/2012/02/json-facil-em-java-com-gson.html
 https://sites.google.com/site/gson/gson-user-guide#TOC-Gson-Users
 https://www.caelum.com.br/apostila-java-web/servlets/#5-11-exercicios-criando-funcionalidade-para-gravar-contatos
 https://beginnersbook.com/2013/05/http-session/
+https://www.youtube.com/watch?v=L51rXE-78kM
+https://www.youtube.com/watch?v=4VgHJCAKZZQ&t=3s

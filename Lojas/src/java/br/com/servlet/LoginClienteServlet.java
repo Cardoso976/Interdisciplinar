@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -21,17 +22,26 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "LoginClienteServlet", urlPatterns = {"/login"})
 public class LoginClienteServlet extends HttpServlet {
 
-    protected void doPost(String request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.setContentType("application/json;charset=UTF-8");
-
-        Gson gson = new Gson();
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        LoginCliente login = gson.fromJson(request, LoginCliente.class);
+        String json = request.getParameter("login");
+        Gson gson = new Gson();
+        response.setContentType("application/json;charset=UTF-8");
+        //response.setContentType(“application / json”);
+        LoginCliente login = gson.fromJson(json, LoginCliente.class);
 
         ClienteDAO cliente = new ClienteDAO();
         cliente.login(login.getEmail(), login.getSenha());
+
+        //response.getWriter(json);
         
-          //PAreiii
-    }    
+    }
 }
